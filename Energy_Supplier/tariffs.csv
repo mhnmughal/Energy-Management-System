@@ -1,0 +1,2 @@
+CustomerID,TariffID,TariffType,Price,Duration
+1,1001,Residential,0.12,30

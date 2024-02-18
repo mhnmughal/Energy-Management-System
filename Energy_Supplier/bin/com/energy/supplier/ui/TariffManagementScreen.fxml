@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.energy.supplier.ui.TariffManagementController">
+   <children>
+      <Label alignment="CENTER" layoutX="246.0" layoutY="53.0" prefHeight="37.0" prefWidth="467.0" text="Tariff Management">
+         <font>
+            <Font name="Times New Roman Bold" size="36.0" />
+         </font></Label>
+      <TableView fx:id="tariffTable" layoutX="147.0" layoutY="382.0" prefHeight="214.0" prefWidth="615.0">
+         <columns>
+            <TableColumn fx:id="a" prefWidth="112.0" text="Customer ID" />
+            <TableColumn fx:id="TariffId" prefWidth="87.0" text="Tariff ID" />
+            <TableColumn fx:id="TariffType" prefWidth="89.0" text="Tariff Type" />
+            <TableColumn fx:id="Price" prefWidth="101.0" text="Price" />
+            <TableColumn fx:id="Duration" prefWidth="112.0" text="Duration" />
+            <TableColumn fx:id="remove" prefWidth="112.0" />
+         </columns>
+      </TableView>
+      <Button layoutX="491.0" layoutY="322.0" mnemonicParsing="false" onAction="#toAddTriff" prefHeight="25.0" prefWidth="269.0" text="Add Tariff Data Into The Table">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="190.0" layoutY="125.0" prefHeight="28.0" prefWidth="141.0" text="Add Tariff">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="IdField" layoutX="260.0" layoutY="205.0" prefHeight="29.0" prefWidth="175.0" promptText="Enter Tariff ID(1,2,3,4,...)">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font></TextField>
+      <TextField fx:id="TariffField" layoutX="260.0" layoutY="247.0" prefHeight="29.0" prefWidth="175.0" promptText="Enter Tariff Type">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font></TextField>
+      <TextField fx:id="DurationField" layoutX="260.0" layoutY="325.0" prefHeight="29.0" prefWidth="175.0" promptText="Enter Duration(1,2,3,.....)">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font></TextField>
+      <TextField fx:id="PriceField" layoutX="260.0" layoutY="284.0" prefHeight="29.0" prefWidth="175.0" promptText="Enter price">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font></TextField>
+      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="196.0" prefHeight="43.0" prefWidth="141.0" text="Tariff ID:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="316.0" prefHeight="43.0" prefWidth="141.0" text="Duration:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="275.0" prefHeight="43.0" prefWidth="141.0" text="Price:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="238.0" prefHeight="43.0" prefWidth="141.0" text="Tariff Type:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="446.0" layoutY="286.0" prefHeight="25.0" prefWidth="18.0" text="\$" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="443.0" layoutY="325.0" prefHeight="25.0" prefWidth="40.0" text="Days" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="CField" layoutX="260.0" layoutY="162.0" prefHeight="29.0" prefWidth="175.0" promptText="Enter ID(1,2,3,4,...)">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font></TextField>
+      <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="153.0" prefHeight="43.0" prefWidth="141.0" text="Customer ID:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="667.0" layoutY="616.0" mnemonicParsing="false" onAction="#refreshData" prefHeight="25.0" prefWidth="141.0" text="Refresh Table">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

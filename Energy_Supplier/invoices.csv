@@ -1,0 +1,2 @@
+invoiceID,customerID,tariffType,totalAmount,payment
+5,1,Residential,50.0,UNPAID

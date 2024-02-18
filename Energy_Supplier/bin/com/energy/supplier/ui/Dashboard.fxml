@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.energy.supplier.ui.DashboardController">
+   <children>
+      <Label layoutX="260.0" layoutY="72.0" text="Customer's  Dashboard">
+         <font>
+            <Font name="Times New Roman Bold" size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="IdField" layoutX="233.0" layoutY="142.0" prefHeight="29.0" prefWidth="189.0" promptText="Enter Customer ID (1,2,3,4,...)">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER_RIGHT" layoutX="115.0" layoutY="142.0" prefHeight="29.0" prefWidth="100.0" text="Customer ID:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TariffField" layoutX="589.0" layoutY="142.0" prefHeight="29.0" prefWidth="175.0" promptText="Enter Tariff Type">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER_RIGHT" layoutX="473.0" layoutY="142.0" prefHeight="29.0" prefWidth="94.0" text="Tariff Type:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="337.0" layoutY="202.0" text="Customer  Detail">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="236.0" layoutY="250.0" prefHeight="29.0" prefWidth="100.0" text="Customer ID:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="215.0" layoutY="297.0" prefHeight="32.0" prefWidth="125.0" text="Customer Name:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="687.0" layoutY="184.0" mnemonicParsing="false" onAction="#serach" text="Search">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER_RIGHT" layoutX="246.0" layoutY="350.0" prefHeight="32.0" prefWidth="94.0" text="Tariff Type:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="226.0" layoutY="406.0" prefHeight="32.0" prefWidth="114.0" text="Meter reading:" textAlignment="RIGHT">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Id" editable="false" layoutX="368.0" layoutY="250.0" prefHeight="29.0" prefWidth="189.0" promptText=" Customer ID ">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="customerName" editable="false" layoutX="368.0" layoutY="299.0" prefHeight="29.0" prefWidth="189.0" promptText="Customer Name">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tariff" editable="false" layoutX="368.0" layoutY="352.0" prefHeight="29.0" prefWidth="189.0" promptText="Tariff Type">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="meterReading" editable="false" layoutX="368.0" layoutY="408.0" prefHeight="29.0" prefWidth="189.0" promptText="Meter Reading">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="Invoicetable" layoutX="151.0" layoutY="486.0" prefHeight="98.0" prefWidth="547.0">
+         <columns>
+            <TableColumn fx:id="invoiceId" prefWidth="75.0" text="Invoice ID" />
+            <TableColumn fx:id="customerId" prefWidth="75.0" text="Customer ID" />
+            <TableColumn fx:id="tariffType" prefWidth="104.0" text="Tariff Type" />
+            <TableColumn fx:id="cost" prefWidth="153.0" text="Amount(Price*Duration)" />
+            <TableColumn fx:id="payment" prefWidth="140.0" text="Payment" />
+         </columns>
+      </TableView>
+      <Label layoutX="325.0" layoutY="449.0" text=" Account Summary">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="630.0" layoutY="596.0" mnemonicParsing="false" onAction="#refreshData" text="Refresh the table">
+         <font>
+            <Font name="Times New Roman Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

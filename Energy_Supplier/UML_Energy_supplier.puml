@@ -1,0 +1,275 @@
+@startuml
+
+class Controller {
+     - customerData: List<Customer>
+    - tariffsDetail: List<EnergyTariff>
+    - invoices: List<Invoice>
+    - user: List<User>
+    ---------------------------
+    + getCustomerData(): List<Customer>
+    + getTariffsData(): List<EnergyTariff>
+    + getInvoices(): List<Invoice>
+    + getUser(): List<User>
+    + addCustomer(id: int, fname: String, lname: String, address: String, contact: String): void
+    + addTariff(cid: int, id: int, type: String, price: double, duration: int): void
+    + addUser(id: int, name: String, username: String, password: String): void
+    + updateInfo(id: int, fname: String, lname: String, address: String, contact: String): void
+    + updateTariff(id: int, type: String, price: double, duration: int): void
+    + addInvoice(id: int, type: String, cost: double): void
+    + getCustomerDetails(): void
+    + getInvoice(): void
+    + getTariffDetails(): void
+    + getUserDetails(): void
+    - writeCustomersToFile(filePath: String): void
+    - writeTariffsToFile(filePath: String): void
+    - writeUserToFile(filePath: String): void
+    - readCustomersFromFile(filePath: String): void
+    - readUserFromFile(filePath: String): void
+    - readTariffsFromFile(filePath: String): void
+    - writeInvoicesToFile(filePath: String): void
+    - readInvoicesFromFile(filePath: String): void
+    + removeCustomer(customer: Customer): void
+    + removeTariff(tariff: EnergyTariff): void
+    - closeWriter(writer: FileWriter): void
+    - closeReader(reader: BufferedReader): void
+}
+
+class User {
+    - id: int
+    - name: String
+    - username: String
+    - password: String
+    ---------------------
+    + getId(): int
+    + setId(id: int): void
+    + getName(): String
+    + setName(name: String): void
+    + getUsername(): String
+    + setUsername(username: String): void
+    + getPassword(): String
+    + setPassword(password: String): void
+}
+class Customer {
+            
+ - customerId: int
+    - firstName: String
+    - lastName: String
+    - address: String
+    - contactInfo: String
+    - removeButton: Button
+    ---------------------------
+    + getRemoveButton(): Button
+    + setRemoveButton(removeButton: Button): void
+    + Customer(customerId: int, firstName: String, lastName: String, address: String, contactInfo: String)
+    + Customer()
+    + setCustomerID(customerId: int): void
+    + getCustomerID(): int
+    + setFirstName(firstName: String): void
+    + getFirstName(): String
+    + setAddress(address: String): void
+    + getAddress(): String
+    + setLastName(lastName: String): void
+    + getLastName(): String
+    + setContactInfo(contactInfo: String): void
+    + getContactInfo(): String
+}
+class EnergyTariff{
+       - tariffId: int
+    - customerId: int
+    - tariffType: String
+    - price: double
+    - duration: int
+    - removeButton: Button
+    ---------------------
+    + getRemoveButton(): Button
+    + setRemoveButton(removeButton: Button): void
+    + getCustomerId(): int
+    + setCustomerId(customerId: int): void
+    + EnergyTariff(Cid: int, id: int, type: String, price: double, time: int)
+    + EnergyTariff()
+    + setTariffID(tariffID: int): void
+    + getTariffID(): int
+    + setTariffType(tariffType: String): void
+    + getTariffType(): String
+    + setPrice(price: double): void
+    + getPrice(): double
+    + setDuration(duration: int): void
+    + getDuration(): int
+    + calculateCost(): double
+
+}
+class Invoice {
+    - a: static int
+    - invoiceId: int
+    - customerId: int
+    - TariffType: String
+    - totalAmount: double
+    - payment: String
+    ---------------------------
+    + getPayment(): String
+    + setPayment(payment: String): void
+    + Invoice()
+    + getCustomerId(): int
+    + setCustomerId(customerId: int): void
+    + getInvoiceId(): int
+    + setInvoiceId(invoiceId: int): void
+    + getTariffType(): String
+    + setTariffType(TariffType: String): void
+    + getTotalAmount(): double
+    + setTotalAmount(totalAmount: double): void
+}
+class LoginController {
+    +toSignUp(e: ActionEvent): void
+    +toLogin(e: ActionEvent): void
+    -isValidUser(enteredUsername: String, enteredPassword: String): boolean
+}
+
+class SignUpController {
+    +toBack(e: ActionEvent): void
+    +AddUser(e: ActionEvent): void
+}
+
+class WelcomeController {
+    +toLogin(e: ActionEvent): void
+}
+
+class RootPaneController {
+    -loadCustomerManagementScreen(): void
+    -loadTariffManagementScreen(): void
+    -loadInvoiceGenerationScreen(): void
+    -loadDashboardScreen(): void
+    -loadCustomerData(): void
+    -saveCustomerData(): void
+    -showAboutInfo(): void
+    -showAlert(title: String, content: String): void
+}
+
+class WelcomeFXML {
+    -Label
+    -Button
+}
+
+class LoginFXML {
+    -Label
+    -Button
+    -TextField
+    -PasswordField
+}
+
+class SignUpFXML {
+    -Label
+    -Button
+    -TextField
+    -PasswordField
+}
+
+class RootPaneFXML {
+    -MenuBar
+    -MenuItem
+    -TabPane
+    -Tab
+}
+
+class CustomerManagementController {
+    -controller: Controller
+
+    +initialize(): void
+    +loadData(): void
+    +saveData(): void
+    +addCustomer(): void
+    +deleteCustomer(): void
+    +editCustomer(): void
+}
+
+class TariffManagementController {
+    -controller: Controller
+
+    +initialize(): void
+    +loadTariffs(): void
+    +saveTariffs(): void
+    +addTariff(): void
+    +deleteTariff(): void
+    +editTariff(): void
+}
+
+class InvoiceGenerationController {
+    -controller: Controller
+
+    +initialize(): void
+    +generateInvoice(): void
+    +previewInvoice(): void
+    +printInvoice(): void
+}
+
+class DashboardController {
+    -controller: Controller
+
+    +initialize(): void
+    +loadDashboardData(): void
+}
+
+class CustomerManagementScreenFXML {
+    -TableView<Customer>
+    -TableColumn<Customer, String>
+    -TableColumn<Customer, String>
+    -TableColumn<Customer, Double>
+    -Button
+}
+
+class TariffManagementScreenFXML {
+    -TableView<Tariff>
+    -TableColumn<Tariff, String>
+    -TableColumn<Tariff, Double>
+    -TableColumn<Tariff, String>
+    -Button
+}
+
+class InvoiceGenerationFXML {
+    -DatePicker
+    -ComboBox<Customer>
+    -TableView<InvoiceItem>
+    -TableColumn<InvoiceItem, String>
+    -TableColumn<InvoiceItem, Double>
+    -Button
+}
+
+class DashboardFXML {
+    -Label
+    -Chart
+    -Button
+}
+class EnergySupplierApp {
+    ---------------------------
+    + start(primaryStage: Stage): void
+    + main(args: String[]): void
+}
+Customer -- Controller
+  
+EnergyTariff -- Controller
+
+User -- Controller
+
+Invoice -- Controller
+Controller -- WelcomeController
+WelcomeController -- WelcomeFXML
+
+Controller -- LoginController
+LoginController -- LoginFXML
+
+Controller -- SignUpController
+SignUpController -- SignUpFXML
+
+Controller -- RootPaneController
+RootPaneController -- RootPaneFXML
+
+RootPaneController -- CustomerManagementController
+RootPaneController -- TariffManagementController
+RootPaneController -- InvoiceGenerationController
+RootPaneController -- DashboardController
+
+CustomerManagementController -- CustomerManagementScreenFXML
+TariffManagementController -- TariffManagementScreenFXML
+InvoiceGenerationController -- InvoiceGenerationFXML
+DashboardController -- DashboardFXML
+EnergySupplierApp -- WelcomeFXML
+@enduml
